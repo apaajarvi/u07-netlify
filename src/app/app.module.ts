@@ -1,38 +1,31 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+// import { BasicsModule } from './basics/basics.module';
+import { RecipesModule } from './recipes/recipes.module';
 import { PageNotFoundComponent } from './basics/page-not-found/page-not-found.component';
 import { HomeComponent } from './basics/home/home.component';
-import { BasicsModule } from './basics/basics.module';
-import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
-import { RecipesListComponent } from './recipes/recipes-list/recipes-list.component';
-import { RecipeFormComponent } from './recipes/recipe-form/recipe-form.component';
-import { RecipesModule } from './recipes/recipes.module';
-import { FavouriteListComponent } from './favourite-recipes/favourite-list/favourite-list.component';
-import { FavouriteListModule } from './favourite-recipes/favourite-list.module';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent,
     HomeComponent,
-    RecipeDetailComponent,
-    RecipesListComponent,
-    RecipeFormComponent,
-    FavouriteListComponent,
+    PageNotFoundComponent,
     HeaderComponent,
     FooterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    BasicsModule,
-    RecipesModule,
-    FavouriteListModule
+    RecipesModule, // Om man byter plats på dessa två så blir det att basics inte funkar. Ta bort basicsmodulen!!
+    // BasicsModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BasicsService } from '../basics.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private BasicsService: BasicsService) { }
+
+  results;
 
   ngOnInit(): void {
+    this.results = this.BasicsService.getRecipes();
   }
 
 }
