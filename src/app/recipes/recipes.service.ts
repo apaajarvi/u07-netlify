@@ -29,10 +29,13 @@ export class RecipesService {
 
   // Nedan tillhör favourie-list-funktioner:
   addToFavourites(recipe) {
+    console.log(recipe);
     this.items.push(recipe);
+    console.log(this.items);
   }
 
   getFavourites() {
+    console.log(this.items);
     return this.items;
   }
 

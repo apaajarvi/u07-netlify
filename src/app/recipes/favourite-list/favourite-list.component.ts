@@ -8,20 +8,21 @@ import { RecipesService } from '../recipes.service';
 })
 export class FavouriteListComponent implements OnInit {
 
-  items = this.RecipesService.getFavourites();
+  items = this.recipesService.getFavourites();
 
-  constructor(private RecipesService: RecipesService) { }
+  constructor(private recipesService: RecipesService) { }
 
   ngOnInit(): void {
   }
 
   deleteOneFavourite(item) {
-    this.RecipesService.deleteOne(item);
+    this.recipesService.deleteOne(item);
   }
 
   clearFavourites() {
-    this.RecipesService.clearFavourites();
-    this.items = this.RecipesService.getFavourites();
+    this.recipesService.clearFavourites();
+    this.items = this.recipesService.getFavourites();
+    console.log("hej");
   }
 
 }
