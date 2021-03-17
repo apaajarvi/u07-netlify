@@ -45,4 +45,20 @@ export class RecipesService {
     console.log(this.items);
   }
 
+  findRecipe(q: string, mealType = null, dietLabel = null, healthLabel = null): Observable<any[]> {
+    // let apiUrl = constants.apiURL;
+    // let apiKey = environment.apiKey;
+    // let apiID = environment.apiID;
+    const mealTypeString = mealType !== "" ? "&mealType=" + mealType : "";
+    const query = q ? q : "";
+    const dietLabelString = dietLabel !== "" ? "&dietLabels=" + dietLabel : "";
+    const healthLabelString = healthLabel !== "" ? "&healthLabels=" + healthLabel : "";
+
+    let url = `${this.apiUrl}app_id=${this.apiID}&app_key=${this.apiKey}&q=` + query + mealTypeString + dietLabelString + healthLabelString;
+
+    console.log(url);
+    return this.http.get<any[]>(url);
+  }
+
+
 }

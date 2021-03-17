@@ -1,1 +1,54 @@
 <p>recipe-form works!</p>
+<form (ngSubmit)="onSubmit(recipeForm)" #recipeForm="ngForm">
+
+    <input name="querystring" type="text" [(ngModel)]="querystring">
+    <br>
+    <!-- <input (input)="querystring=$event.target.value"> -->
+    <input type="radio" value="breakfast" id="breakfast" name="mealType" ngModel> Breakfast
+    <input type="radio" value="lunch" id="lunch" name="mealType" ngModel> Lunch
+    <input type="radio" value="dinner" id="dinner" name="mealType" ngModel> Dinner
+    <br>
+    <input type="radio" value="high-fiber" id="high-fiber" name="dietLabel" ngModel> High-Fiber
+    <input type="radio" value="high-protein" id="high-protein" name="dietLabel" ngModel> High-Protein
+    <input type="radio" value="low-carb" id="low-carb" name="dietLabel" ngModel> Low-Carb
+    <br>
+    <input type="radio" value="egg-free" id="egg-free" name="healthLabel" ngModel> Egg-free
+    <input type="radio" value="fish-free" id="fish-free" name="healthLabel" ngModel> Fish-free
+    <input type="radio" value="gluten-free" id="gluten-free" name="healthLabel" ngModel> Gluten-free
+
+    <br>
+    <button type="submit">Go</button>
+
+</form>
+
+<!-- <button (click)="test()">click</button> -->
+
+<div class="card-deck">
+    <div class="row">
+        <div class="col-sm-8 col-md-4 col-lg-3 p-2" *ngFor="let result of (results | async)?.hits"
+            [class.selected]="recipe === selectedRecipe">
+            <div class="card">
+                <img img src="{{ result.recipe.image}}">
+                <div class="card-body">
+                    <p class="card-title">{{result.recipe.label}}</p>
+                    <a [routerLink]="['/recipe-detail', result.recipe.uri]" routerLinkActive="active">Go
+                        to
+                        recipe</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- <ul class="recipes">
+    <li *ngFor="let result of (results | async)?.hits let i = index" id="{{i}}"
+        [class.selected]="recipe === selectedRecipe">
+        <span>{{i}}{{result.recipe.uri}}</span><a (click)="onSelect(result.recipe.uri)"></a>
+        <img src="{{ result.recipe.image}}" class="img-thumbnail img-fluid">
+    </li>
+
+</ul> -->

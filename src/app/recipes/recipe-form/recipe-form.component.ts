@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RecipesService } from '../recipes.service';
 
 @Component({
   selector: 'app-recipe-form',
@@ -7,9 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipeFormComponent implements OnInit {
 
-  constructor() { }
+  querystring = '';
+
+  results;
+
+  recipeForm;
+
+  constructor(private recipesService: RecipesService) { }
 
   ngOnInit(): void {
   }
 
+  onSubmit(form) {
+    this.results = this.recipesService.findRecipe(form.value.querystring, form.value.mealType, form.value.dietLabel, form.value.healthLabel);
+    console.log(form.value);
+  }
+
+  // selectedRecipe?: Recipe;
+  // onSelect(recipe: Recipe) {
+  //   this.selectedRecipe = recipe;
+  // }
+}
+
+export class RecipeForm {
+  querystring: string;
+  mealType: string;
+  dietLabel: string;
+  healthLabel: string;
 }
