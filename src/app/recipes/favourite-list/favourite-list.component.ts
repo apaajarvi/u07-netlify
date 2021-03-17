@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RecipesService } from '../recipes.service';
 
 @Component({
   selector: 'app-favourite-list',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavouriteListComponent implements OnInit {
 
-  constructor() { }
+  items = this.RecipesService.getFavourites();
+
+  constructor(private RecipesService: RecipesService) { }
 
   ngOnInit(): void {
+  }
+
+  deleteOneFavourite(item) {
+    this.RecipesService.deleteOne(item);
+  }
+
+  clearFavourites() {
+    this.RecipesService.clearFavourites();
+    this.items = this.RecipesService.getFavourites();
   }
 
 }

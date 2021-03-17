@@ -1,1 +1,15 @@
-<p>recipe-detail works!</p>
+<p>Chosen recipe:</p>
+
+
+<div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-6 p-2" *ngIf="recipe">
+        <div class="card" style="width: 18rem;">
+            <img img src="{{ recipe.image}}">
+            <div class="card-body">
+                <h6>{{recipe.label}}</h6>
+                <p class="card-text">{{recipe.ingredientLines}}</p>
+                <button (click)="addToFavourites(recipe)">Add to fav</button>
+            </div>
+        </div>
+    </div>
+</div>
