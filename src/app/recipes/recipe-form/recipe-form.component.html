@@ -1,27 +1,43 @@
 <p>recipe-form works!</p>
-<form (ngSubmit)="onSubmit(recipeForm)" #recipeForm="ngForm">
+<div class="main">
+    <div class="form-group has-search">
+        <form (ngSubmit)="onSubmit(recipeForm)" #recipeForm="ngForm">
+            <span class="fa fa-search form-control-feedback"></span>
+            <input class="form-control" name="querystring" type="text" [(ngModel)]="querystring" placeholder="Search">
 
-    <input name="querystring" type="text" [(ngModel)]="querystring">
-    <br>
-    <!-- <input (input)="querystring=$event.target.value"> -->
-    <input type="radio" value="breakfast" id="breakfast" name="mealType" ngModel> Breakfast
-    <input type="radio" value="lunch" id="lunch" name="mealType" ngModel> Lunch
-    <input type="radio" value="dinner" id="dinner" name="mealType" ngModel> Dinner
-    <br>
-    <input type="radio" value="high-fiber" id="high-fiber" name="dietLabel" ngModel> High-Fiber
-    <input type="radio" value="high-protein" id="high-protein" name="dietLabel" ngModel> High-Protein
-    <input type="radio" value="low-carb" id="low-carb" name="dietLabel" ngModel> Low-Carb
-    <br>
-    <input type="radio" value="egg-free" id="egg-free" name="healthLabel" ngModel> Egg-free
-    <input type="radio" value="fish-free" id="fish-free" name="healthLabel" ngModel> Fish-free
-    <input type="radio" value="gluten-free" id="gluten-free" name="healthLabel" ngModel> Gluten-free
+            <h5 class="mt-5">Choose your preferences:</h5>
+            <br>
+            <div class="container-fluid">
+                <div class="text-left">
+                    <input class="m-2" type="radio" value="breakfast" id="breakfast" name="mealType" ngModel> Breakfast
+                    <input class="m-2" type="radio" value="lunch" id="lunch" name="mealType" ngModel> Lunch
+                    <input class="m-2" type="radio" value="dinner" id="dinner" name="mealType" ngModel> Dinner
 
-    <br>
-    <button type="submit">Go</button>
+                </div>
+                <br>
+                <div class="text-left">
+                    <input class="m-2" type="radio" value="high-fiber" id="high-fiber" name="dietLabel" ngModel>
+                    High-Fiber
+                    <input class="m-2" type="radio" value="high-protein" id="high-protein" name="dietLabel" ngModel>
+                    High-Protein
+                    <input class="m-2" type="radio" value="low-carb" id="low-carb" name="dietLabel" ngModel> Low-Carb
+                </div>
+                <br>
+                <div class="text-left">
+                    <input class="m-2" type="radio" value="egg-free" id="egg-free" name="healthLabel" ngModel> Egg-free
+                    <input class="m-2" type="radio" value="fish-free" id="fish-free" name="healthLabel" ngModel>
+                    Fish-free
+                    <input class="m-2" type="radio" value="gluten-free" id="gluten-free" name="healthLabel" ngModel>
+                    Gluten-free
+                </div>
+                <br>
 
-</form>
+                <button type="submit" class="btn btn-info">Go</button>
+            </div>
 
-<!-- <button (click)="test()">click</button> -->
+        </form>
+    </div>
+</div>
 
 <div class="card-deck">
     <div class="row">
@@ -40,15 +56,3 @@
         </div>
     </div>
 </div>
-
-
-
-
-<!-- <ul class="recipes">
-    <li *ngFor="let result of (results | async)?.hits let i = index" id="{{i}}"
-        [class.selected]="recipe === selectedRecipe">
-        <span>{{i}}{{result.recipe.uri}}</span><a (click)="onSelect(result.recipe.uri)"></a>
-        <img src="{{ result.recipe.image}}" class="img-thumbnail img-fluid">
-    </li>
-
-</ul> -->
