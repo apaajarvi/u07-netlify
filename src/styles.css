@@ -4,12 +4,32 @@
     padding: 0;
 }
 
+html {
+        position: relative;
+        min-height: 100vh;
+}
+
 body {
-    position: relative;
-    background-color: pink;
-    min-height: 100vh;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,148,233,1) 100%);
+    margin-bottom: 100px;
 }
 
 .btn {
-    background-color: white;
+    background: #9494e9;
+    border-color: #9494e9;
 }
+
+.btn:hover {
+    background: #e9c2d2;
+    border-color: #9494e9;
+}
+
+a:link, a:visited, a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+/* a:visited {
+    text-decoration: none;
+} */

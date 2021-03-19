@@ -1,13 +1,13 @@
-<p>Chosen recipe:</p>
+<h4 class="text-left">Chosen recipe</h4>
 
 <div class="row justify-content-center">
-    <div class="col-sm-12 col-md-8 col-lg-6" *ngIf="recipe">
+    <div class="col-sm-12 col-md-6 col-lg-3 m-3" *ngIf="recipe">
         <div class="card" style="width: 18rem;">
             <img img src="{{ recipe.image}}">
             <div class="card-body">
                 <h6>{{recipe.label}}</h6>
                 <p class="card-text">{{recipe.ingredientLines}}</p>
-                <button (click)="addToFavourites(recipe)">Add to fav</button>
+                <button class="btn" (click)="addToFavourites(recipe)">Add to fav</button>
             </div>
         </div>
     </div>

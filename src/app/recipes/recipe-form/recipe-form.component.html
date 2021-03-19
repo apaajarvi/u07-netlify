@@ -1,4 +1,5 @@
-<p>recipe-form works!</p>
+<h4 class="text-left">Search recipes</h4>
+
 <div class="main">
     <div class="form-group has-search">
         <form (ngSubmit)="onSubmit(recipeForm)" #recipeForm="ngForm">
@@ -31,8 +32,9 @@
                     Gluten-free
                 </div>
                 <br>
-
-                <button type="submit" class="btn btn-info">Go</button>
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn">Search recipe</button>
+                </div>
             </div>
 
         </form>
@@ -40,17 +42,17 @@
 </div>
 
 <div class="card-deck">
-    <div class="row">
+    <div class="row text-center">
         <div class="col-sm-8 col-md-4 col-lg-3 p-2" *ngFor="let result of (results | async)?.hits"
             [class.selected]="recipe === selectedRecipe">
             <div class="card">
                 <img img src="{{ result.recipe.image}}">
                 <div class="card-body">
                     <p class="card-title">{{result.recipe.label}}</p>
-                    <a [routerLink]="['/recipe-detail', result.recipe.uri]" routerLinkActive="active">Go
-                        to
-                        recipe</a>
-
+                    <button class="btn"><a [routerLink]="['/recipe-detail', result.recipe.uri]"
+                            routerLinkActive="active">Go
+                            to
+                            recipe</a></button>
                 </div>
             </div>
         </div>
