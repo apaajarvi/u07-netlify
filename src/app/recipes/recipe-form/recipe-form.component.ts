@@ -6,6 +6,8 @@ import { RecipesService } from '../recipes.service';
   templateUrl: './recipe-form.component.html',
   styleUrls: ['./recipe-form.component.css']
 })
+
+
 export class RecipeFormComponent implements OnInit {
 
   querystring = '';
@@ -24,15 +26,4 @@ export class RecipeFormComponent implements OnInit {
     console.log(form.value);
   }
 
-  // selectedRecipe?: Recipe;
-  // onSelect(recipe: Recipe) {
-  //   this.selectedRecipe = recipe;
-  // }
-}
-
-export class RecipeForm {
-  querystring: string;
-  mealType: string;
-  dietLabel: string;
-  healthLabel: string;
 }

@@ -1,4 +1,4 @@
-<h4 class="text-left">Search recipes</h4>
+<h4 class="text-left m-2">Search recipes</h4>
 
 <div class="main">
     <div class="form-group has-search">
@@ -10,6 +10,7 @@
             <br>
             <div class="container-fluid">
                 <div class="text-left">
+                    <p>Mealtype</p>
                     <input class="m-2" type="radio" value="breakfast" id="breakfast" name="mealType" ngModel> Breakfast
                     <input class="m-2" type="radio" value="lunch" id="lunch" name="mealType" ngModel> Lunch
                     <input class="m-2" type="radio" value="dinner" id="dinner" name="mealType" ngModel> Dinner
@@ -17,6 +18,7 @@
                 </div>
                 <br>
                 <div class="text-left">
+                    <p>Dietary preferences</p>
                     <input class="m-2" type="radio" value="high-fiber" id="high-fiber" name="dietLabel" ngModel>
                     High-Fiber
                     <input class="m-2" type="radio" value="high-protein" id="high-protein" name="dietLabel" ngModel>
@@ -25,6 +27,7 @@
                 </div>
                 <br>
                 <div class="text-left">
+                    <p>Health preferences</p>
                     <input class="m-2" type="radio" value="egg-free" id="egg-free" name="healthLabel" ngModel> Egg-free
                     <input class="m-2" type="radio" value="fish-free" id="fish-free" name="healthLabel" ngModel>
                     Fish-free
@@ -42,7 +45,7 @@
 </div>
 
 <div class="card-deck">
-    <div class="row text-center">
+    <div class="row text-center p-2">
         <div class="col-sm-8 col-md-4 col-lg-3 p-2" *ngFor="let result of (results | async)?.hits"
             [class.selected]="recipe === selectedRecipe">
             <div class="card">

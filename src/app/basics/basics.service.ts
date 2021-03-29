@@ -22,8 +22,8 @@ export class BasicsService {
   }
 
   getRecipes(): Observable<any[]> {
-    this.query = '&q=sausage&dishType=dessert'; // Ändra till godare recept!
-    let url = `${this.apiUrl}app_id=${this.apiID}&app_key=${this.apiKey}&q=` + this.query;
+    this.query = '&q=icecream&dishType=dessert';
+    let url = `${this.apiUrl}app_id=${this.apiID}&app_key=${this.apiKey}` + this.query;
 
     console.log(url);
     return this.http.get<any[]>(url);

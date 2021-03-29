@@ -6,6 +6,8 @@ import { RecipesService } from '../recipes.service';
   templateUrl: './favourite-list.component.html',
   styleUrls: ['./favourite-list.component.css']
 })
+
+
 export class FavouriteListComponent implements OnInit {
 
   items = this.recipesService.getFavourites();
@@ -22,7 +24,6 @@ export class FavouriteListComponent implements OnInit {
   clearFavourites() {
     this.recipesService.clearFavourites();
     this.items = this.recipesService.getFavourites();
-    console.log("hej");
   }
 
 }

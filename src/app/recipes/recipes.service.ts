@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class RecipesService {
 
   items = [];
@@ -21,21 +23,17 @@ export class RecipesService {
   }
 
   getRecipeById(id: string): Observable<any[]> {
-
     let url = `${this.apiUrl}app_id=${this.apiID}&app_key=${this.apiKey}&r=`
     console.log(url + encodeURIComponent(id))
     return this.http.get<any[]>(url + encodeURIComponent(id))
   }
 
-  // Nedan tillhör favourie-list-funktioner:
+  // Favourite-list functions
   addToFavourites(recipe) {
-    console.log(recipe);
     this.items.push(recipe);
-    console.log(this.items);
   }
 
   getFavourites() {
-    console.log(this.items);
     return this.items;
   }
 
@@ -45,13 +43,11 @@ export class RecipesService {
 
   clearFavourites() {
     this.items = [];
-    console.log(this.items);
   }
 
+  // Recipe-form function search recipe
   findRecipe(q: string, mealType = null, dietLabel = null, healthLabel = null): Observable<any[]> {
-    // let apiUrl = constants.apiURL;
-    // let apiKey = environment.apiKey;
-    // let apiID = environment.apiID;
+
     const mealTypeString = mealType !== "" ? "&mealType=" + mealType : "";
     const query = q ? q : "";
     const dietLabelString = dietLabel !== "" ? "&dietLabels=" + dietLabel : "";
@@ -62,6 +58,4 @@ export class RecipesService {
     console.log(url);
     return this.http.get<any[]>(url);
   }
-
-
 }

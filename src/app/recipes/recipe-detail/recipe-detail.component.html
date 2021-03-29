@@ -7,7 +7,9 @@
             <div class="card-body">
                 <h6>{{recipe.label}}</h6>
                 <p class="card-text">{{recipe.ingredientLines}}</p>
-                <button class="btn" (click)="addToFavourites(recipe)">Add to fav</button>
+                <div class="text-center">
+                    <button class="btn" (click)="addToFavourites(recipe)">Add to favourites</button>
+                </div>
             </div>
         </div>
     </div>

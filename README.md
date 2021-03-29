@@ -2,6 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.0.
 
+# Requirement
+
+Use frontend and Angular (version 11).
+Use an external API to get information about recipes. This application use https://developer.edamam.com/edamam-recipe-api.
+Must work on mobiles.
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

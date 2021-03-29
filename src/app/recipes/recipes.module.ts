@@ -7,8 +7,6 @@ import { RecipeFormComponent } from './recipe-form/recipe-form.component';
 import { FavouriteListComponent } from './favourite-list/favourite-list.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 
-
-
 @NgModule({
   declarations: [
     RecipeFormComponent,

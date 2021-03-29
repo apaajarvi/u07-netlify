@@ -16,20 +16,16 @@ export class RecipeDetailComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(paramMap => { // Allt vi har i uri:n ligger nu i denna paramMap
+    this.route.paramMap.subscribe(paramMap => {
       const id = paramMap.get('id')
-      this.recipesService.getRecipeById(id).subscribe(data => { // den andra subscriben, vi vill anv svaret från edamam för att ex spara vår property i recipeklassen. this.recipe är undef innan vi sätter den.
+      this.recipesService.getRecipeById(id).subscribe(data => {
         this.recipe = data[0]
-        console.log(data)
       })
     })
   }
 
   addToFavourites(recipe) {
     this.recipesService.addToFavourites(recipe);
-    window.alert('Your recipe was added to favourites');
   }
-
-
 
 }
