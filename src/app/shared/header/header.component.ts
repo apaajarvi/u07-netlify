@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { AuthInterceptor } from '../auth.interceptor';
+
 
 @Component({
   selector: 'app-header',

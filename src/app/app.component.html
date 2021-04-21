@@ -1,6 +1,39 @@
 <h1 class="display-5 m-2">Recipe application</h1>
-<app-header></app-header>
+<!-- <app-header></app-header> -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/home">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" routerLink="/recipe-form">Search recipes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" routerLink="/favourite-recipes">Favourite
+                        recipes</a>
+                </li>
+                <!-- Nedan är för in- och utlogg -->
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="/profile" *ngIf="isSignedIn">User Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" *ngIf="!isSignedIn" routerLink="/login">Log in</a>
+                </li>
 
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="/register">Register</a>
+                </li>
+                <button class="btn btn-outline-primary" (click)="signOut()" *ngIf="isSignedIn">Log out</button>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<router-outlet></router-outlet>
 <router-outlet></router-outlet>
 
 <app-footer></app-footer>
