@@ -21,7 +21,7 @@
 <div class="form-group has-search">
     <form (ngSubmit)="onSubmit(favouriteForm)" #favouriteForm="ngForm">
         <h4 class="text-center mb-4">Add a favourite-list</h4>
-        <span class="fa fa-search form-control-feedback"></span>
+        <!-- <span class="fa fa-search form-control-feedback"></span> -->
         <input class="form-control" name="title" type="text" ngModel placeholder="Add a list-name">
 
         <div class="text-center mt-4">
@@ -30,9 +30,13 @@
     </form>
 </div>
 
-<!-- <div class="card-deck">
-    <div>
-        <p>{{title}}</p>
-    </div>
+<div>
+    <ul>
+        <li *ngFor="let result of (results | async)">{{result.title}}
+            <button class="btn btn-outline-primary" (click)="deleteFavouriteList(result.id)">Delete</button>
 
-</div> -->
+            <button class="btn btn-outline-primary" (click)="updateFavouriteList(result.id)">Update</button>
+        </li>
+    </ul>
+
+</div>

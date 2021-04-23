@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RecipesService } from '../recipes.service';
-
+// import { RecipesService } from '../recipes.service';
+import { FavouriteListService } from './favourite-list.service';
 
 @Component({
   selector: 'app-favourite-list',
@@ -11,34 +11,28 @@ import { RecipesService } from '../recipes.service';
 
 export class FavouriteListComponent implements OnInit {
 
-  items = this.recipesService.getFavourites();
+  // items = this.recipesService.getFavourites();
 
   results;
 
-  constructor(private recipesService: RecipesService) { }
+  constructor(private FavouriteListService: FavouriteListService) { }
 
   ngOnInit(): void {
+    this.results = this.FavouriteListService.favouriteLists
   }
 
-  // deleteOneFavourite(item) {
-  //   this.recipesService.deleteOne(item);
-  // }
-
-  // clearFavourites() {
-  //   this.recipesService.clearFavourites();
-  //   this.items = this.recipesService.getFavourites();
-  // }
 
   onSubmit(form) {
-    this.results = this.recipesService.findRecipe(form.value.title);
-    this.results.subscribe(data => console.log(data));
-
+    this.FavouriteListService.addFavouriteList(form.value.title);
+    // this.results.subscribe(data => console.log(data));
+    // console.log(this.results)
   }
 
-  // onSubmit(form) {
-  //   this.results = this.recipesService.findRecipe(form.value.querystring, form.value.mealType, form.value.dietLabel, form.value.healthLabel);
-  //   console.log(form.value);
-  // }
+  deleteFavouriteList(id: number) {
+    this.FavouriteListService.deleteFavouriteList(id);
+  }
 
-
+  updateFavouriteList(id: number, title: string) {
+    this.FavouriteListService.updateFavouriteList(id, title);
+  }
 }
