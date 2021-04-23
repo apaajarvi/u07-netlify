@@ -8,7 +8,7 @@
                 <h6>{{recipe.label}}</h6>
                 <p class="card-text">{{recipe.ingredientLines}}</p>
                 <div class="text-center">
-                    <button class="btn" (click)="addToFavourites(recipe)">Add to favourites</button>
+                    <button class="btn" (click)="addToFavourites(recipe)" *ngIf="isSignedIn">Add to favourites</button>
                 </div>
             </div>
         </div>

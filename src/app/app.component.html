@@ -13,27 +13,30 @@
                     <a class="nav-link active" aria-current="page" routerLink="/recipe-form">Search recipes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" routerLink="/favourite-recipes">Favourite
+                    <a class="nav-link active" aria-current="page" routerLink="/favourite-recipes"
+                        *ngIf="isSignedIn">Favourite
                         recipes</a>
                 </li>
                 <!-- Nedan är för in- och utlogg -->
                 <li class="nav-item">
                     <a class="nav-link active" routerLink="/profile" *ngIf="isSignedIn">User Profile</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" *ngIf="!isSignedIn" routerLink="/login">Log in</a>
-                </li>
+                <ng-container *ngIf="!isSignedIn">
+                    <li class="nav-item">
+                        <a class="nav-link active" routerLink="/login">Log in</a>
+                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link active" routerLink="/register">Register</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" routerLink="/register">Register</a>
+                    </li>
+                </ng-container>
                 <button class="btn btn-outline-primary" (click)="signOut()" *ngIf="isSignedIn">Log out</button>
             </ul>
         </div>
     </div>
 </nav>
 
-<router-outlet></router-outlet>
-<router-outlet></router-outlet>
 
-<app-footer></app-footer>
+<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
+<!-- <app-footer></app-footer> -->

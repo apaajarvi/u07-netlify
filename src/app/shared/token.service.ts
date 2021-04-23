@@ -7,8 +7,11 @@ import { Injectable } from '@angular/core';
 export class TokenService {
 
   private issuer = {
-    login: 'http://127.0.0.1:80/api/auth/login',
-    register: 'http://127.0.0.1:80/api/auth/register'
+    // login: 'http://127.0.0.1:80/api/auth/login',
+    // register: 'http://127.0.0.1:80/api/auth/register'
+    login: 'http://127.0.0.1/api/auth/login',
+    register: 'http://127.0.0.1/api/auth/register'
+
   }
 
   constructor() { }
