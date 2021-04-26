@@ -1,0 +1,8 @@
+<div class="form-group-has-search" *ngIf="favouriteList">
+    <form (ngSubmit)="onSubmit(updateForm)" #updateForm="ngForm">
+        <input class="form-control" name="title" type="text" ngModel [placeholder]="favouriteList.title">
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>

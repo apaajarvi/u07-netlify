@@ -35,8 +35,8 @@
         <li *ngFor="let result of (results | async)">{{result.title}}
             <button class="btn btn-outline-primary" (click)="deleteFavouriteList(result.id)">Delete</button>
 
-            <button class="btn btn-outline-primary" (click)="updateFavouriteList(result.id)">Update</button>
+            <button class="btn btn-outline-primary" (click)="updateFavouriteList(result.id)"><a
+                    [routerLink]="['/favourite-lists', result.id]">Update</a></button>
         </li>
     </ul>
-
 </div>

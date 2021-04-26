@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 interface ApiResponce {
@@ -15,7 +16,7 @@ export class FavouriteListService {
   private favouriteListSubject: BehaviorSubject<any[]>
   public favouriteLists: Observable<any[]>
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.favouriteListSubject = new BehaviorSubject<any[]>([]);
     this.favouriteLists = this.favouriteListSubject.asObservable();
 
@@ -46,10 +47,15 @@ export class FavouriteListService {
   }
 
   updateFavouriteList(id: number, title: string) {
+    console.log(id, title)
     return this.http.put('http://127.0.0.1:80/api/auth/favourite-lists/' + id, { title: title }).subscribe(data => {
       console.log(data)
       this.getAllFavouriteLists();
+      this.router.navigate(['/favourite-recipes']);
     })
   }
 
+  getFavoruiteListById(id: string) {
+    return this.http.get('http://127.0.0.1:80/api/auth/favourite-lists/' + id)
+  }
 }
