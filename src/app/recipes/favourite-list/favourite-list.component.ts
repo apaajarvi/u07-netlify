@@ -15,24 +15,24 @@ export class FavouriteListComponent implements OnInit {
 
   results;
 
-  constructor(private FavouriteListService: FavouriteListService) { }
+  constructor(private favouriteListService: FavouriteListService) { }
 
   ngOnInit(): void {
-    this.results = this.FavouriteListService.favouriteLists
+    this.results = this.favouriteListService.favouriteLists
   }
 
 
   onSubmit(form) {
-    this.FavouriteListService.addFavouriteList(form.value.title);
+    this.favouriteListService.addFavouriteList(form.value.title);
     // this.results.subscribe(data => console.log(data));
     // console.log(this.results)
   }
 
   deleteFavouriteList(id: number) {
-    this.FavouriteListService.deleteFavouriteList(id);
+    this.favouriteListService.deleteFavouriteList(id);
   }
 
   updateFavouriteList(id: number, title: string) {
-    this.FavouriteListService.updateFavouriteList(id, title);
+    this.favouriteListService.updateFavouriteList(id, title);
   }
 }

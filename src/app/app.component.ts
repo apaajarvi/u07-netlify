@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
     private auth: AuthStateService,
     public router: Router,
     public token: TokenService,
-    public FavouriteListService: FavouriteListService,
+    public favouriteListService: FavouriteListService,
   ) {
   }
 
@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
     this.auth.userAuthState.subscribe(val => {
       this.isSignedIn = val;
       if (val) {
-        this.FavouriteListService.getAllFavouriteLists();
+        this.favouriteListService.getAllFavouriteLists();
       }
     });
 

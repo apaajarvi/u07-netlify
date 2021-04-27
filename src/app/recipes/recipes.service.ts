@@ -30,6 +30,7 @@ export class RecipesService {
 
   // Favourite-list functions
   addToFavourites(recipe) {
+    console.log(recipe)
     this.items.push(recipe);
   }
 

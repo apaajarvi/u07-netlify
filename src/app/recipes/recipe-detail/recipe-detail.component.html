@@ -1,14 +1,20 @@
-<h4 class="text-left">Chosen recipe</h4>
-
-<div class="row justify-content-center">
-    <div class="col-sm-12 col-md-6 col-lg-3 m-3" *ngIf="recipe">
-        <div class="card" style="width: 18rem;">
-            <img img src="{{ recipe.image}}">
+<!-- Varför ham,nar inte nedan i mitten? -->
+<div class="row p-3 justify-content-center text-center">
+    <div class="col-sm-6 col-md-4 col-lg-3 m-3" *ngIf="recipe">
+        <div class="card rounded-3 shadow p-3 mb-5 bg-body rounded m-2" style="width: 24rem;">
+            <img class="rounded-3" src="{{ recipe.image}}">
             <div class="card-body">
-                <h6>{{recipe.label}}</h6>
+                <h5 class="card-title mt-4">{{recipe.label}}</h5>
                 <p class="card-text">{{recipe.ingredientLines}}</p>
-                <div class="text-center">
-                    <button class="btn" (click)="addToFavourites(recipe)" *ngIf="isSignedIn">Add to favourites</button>
+                <div class="text-left">
+                    <form (ngSubmit)="onSubmit(addToFavouriteForm)" #addToFavouriteForm="ngForm">
+                        <p>Save this recipe in your favourite-lists:</p>
+                        <div *ngFor="let list of (lists | async)">
+                            <input class="m-2" type="checkbox" id="{{list.title}}" name="{{list.id}}" ngModel>
+                            <a [routerLink]="['/favourite-list-items', list.id]">{{list.title}}</a>
+                        </div>
+                        <button class="btn" type="submit">Add to favourite-list</button>
+                    </form>
                 </div>
             </div>
         </div>

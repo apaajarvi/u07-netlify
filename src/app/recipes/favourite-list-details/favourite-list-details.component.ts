@@ -10,7 +10,7 @@ import { FavouriteListService } from '../favourite-list/favourite-list.service';
 })
 export class FavouriteListDetailsComponent implements OnInit {
 
-  favouriteList;
+  data;
 
   constructor(private FavouriteListService: FavouriteListService,
     private route: ActivatedRoute,
@@ -21,13 +21,15 @@ export class FavouriteListDetailsComponent implements OnInit {
     this.route.paramMap.subscribe(paramMap => {
       const id = paramMap.get('id')
       this.FavouriteListService.getFavoruiteListById(id).subscribe((data: any) => {
-        this.favouriteList = data
-        console.log(data)
+        this.data = data
+        console.log(data) // Varför skickas inte datan med till html:en??
       })
     })
   }
 
+
+
   onSubmit(form) {
-    this.FavouriteListService.updateFavouriteList(this.favouriteList.id, form.value.title);
+    this.FavouriteListService.updateFavouriteList(this.data.favouriteList.id, form.value.title);
   }
 }

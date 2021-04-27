@@ -1,15 +1,11 @@
-<h2 class="text-center">Get inspired!</h2>
-
 <div class="card-deck">
-    <div class="row pb-5 justify-content-center text-center">
-        <div class="col-sm-12 col-md-4 col-lg-3" *ngFor="let result of ( results | async )?.hits">
-            <div class="card m-3">
-                <img img src="{{ result.recipe.image}}">
-                <div class="card-body">
-                    <p class="card-title">{{result.recipe.label}}</p>
-                    <button class="btn"><a [routerLink]="['/recipe-detail', result.recipe.uri]">Go
-                            to
-                            recipe</a></button>
+    <div class="row p-3 justify-content-center text-center">
+        <div class="col-sm-6 col-md-4 col-lg-3 m-3" *ngFor="let result of ( results | async )?.hits">
+            <div class="card rounded-3 shadow p-3 mb-5 bg-body rounded m-2">
+                <img class="rounded-3" src="{{ result.recipe.image}}">
+                <div>
+                    <h5 class="card-title mt-4"><a
+                            [routerLink]="['/recipe-detail', result.recipe.uri]">{{result.recipe.label}}</a></h5>
                 </div>
             </div>
         </div>

@@ -1,0 +1,13 @@
+.form-group {
+    width: 50%;
+    margin: 50px auto;
+}
+
+.listWithFavourites {
+    width: 50%;
+    margin: 50px auto; 
+}
+
+li {
+    list-style: none;
+}

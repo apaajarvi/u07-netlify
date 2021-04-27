@@ -20,6 +20,7 @@ export class FavouriteListService {
     this.favouriteListSubject = new BehaviorSubject<any[]>([]);
     this.favouriteLists = this.favouriteListSubject.asObservable();
 
+
   }
   //Ev onödigt...
   public get favouriteListsValue(): any[] {
@@ -35,7 +36,6 @@ export class FavouriteListService {
     return this.http.get('http://127.0.0.1:80/api/auth/favourite-lists').subscribe((data: ApiResponce) => {
       console.log(data)
       this.favouriteListSubject.next(data.data)
-
     });
   }
 
