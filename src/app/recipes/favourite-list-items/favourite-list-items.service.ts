@@ -20,10 +20,7 @@ export class FavouriteListItemsService {
       recipe_label: label,
       recipe_ingredientLines: ingredients
     })
-      .subscribe(data => {
-        console.log(data)
-        this.favouriteListService.getAllFavouriteLists();
-      })
+
   }
 
   deleteFavouriteListItem(id: number) {

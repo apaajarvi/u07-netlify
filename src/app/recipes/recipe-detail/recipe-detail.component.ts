@@ -14,6 +14,7 @@ export class RecipeDetailComponent implements OnInit {
 
   recipe;
   lists;
+  responseText = [];
 
   constructor(private recipesService: RecipesService,
     private route: ActivatedRoute,
@@ -37,10 +38,10 @@ export class RecipeDetailComponent implements OnInit {
   onSubmit(form) {
     const arrayOfListIds = []; // Beh eg inte då man kan köra direkt på if-satsen och göra requests.
 
+
     for (let key in form.value) {
       if (form.value[key] === true) {
         arrayOfListIds.push(key)
-
       }
       console.log(arrayOfListIds)
     }
@@ -52,8 +53,15 @@ export class RecipeDetailComponent implements OnInit {
         this.recipe.image,
         this.recipe.label,
         this.recipe.ingredientLines.join(' ') // denna gör att vår array (som ingredientLines är) blir en string med mellanslag mellan orden. Db kan inte ta emot en array.
-      ) // viktigt att ovan kommer i den ordning som gäller för additemtofavouritelist, här hämtar vi rådatan från recept-svaret.
+      )
+        .subscribe((data: any) => {
+          console.log(data)
+          this.favouriteListService.getAllFavouriteLists();
+          this.responseText.push(data.message);
+        })
     }
+
+
   }
 
   // addToFavourites(recipe) {

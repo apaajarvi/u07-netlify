@@ -14,6 +14,11 @@
                             <a [routerLink]="['/favourite-list-items', list.id]">{{list.title}}</a>
                         </div>
                         <button class="btn" type="submit">Add to favourite-list</button>
+
+                        <div *ngIf="responseText">
+                            <div *ngFor="let message of responseText">{{message}}</div>
+                        </div>
+
                     </form>
                 </div>
             </div>
