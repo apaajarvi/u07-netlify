@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { AuthStateService } from 'src/app/shared/auth-state.service';
 import { FavouriteListItemsService } from '../favourite-list-items/favourite-list-items.service';
 import { FavouriteListService } from '../favourite-list/favourite-list.service';
 import { RecipesService } from '../recipes.service';
@@ -11,7 +12,7 @@ import { RecipesService } from '../recipes.service';
 })
 
 export class RecipeDetailComponent implements OnInit {
-
+  isSignedIn: boolean;
   recipe;
   lists;
   responseText = [];
@@ -20,24 +21,24 @@ export class RecipeDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private favouriteListService: FavouriteListService,
     private favouriteListItemsService: FavouriteListItemsService,
-    private router: Router) { }
+    private router: Router,
+    private auth: AuthStateService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(paramMap => {
       const id = paramMap.get('id')
       this.recipesService.getRecipeById(id).subscribe(data => {
         this.recipe = data[0]
-        console.log(data)
       })
       this.lists = this.favouriteListService.favouriteLists
-      console.log(this.lists)
     })
+    this.auth.userAuthState.subscribe(val => {
+      this.isSignedIn = val;
+    });
   }
 
-
   onSubmit(form) {
-    const arrayOfListIds = []; // Beh eg inte då man kan köra direkt på if-satsen och göra requests.
-
+    const arrayOfListIds = [];
 
     for (let key in form.value) {
       if (form.value[key] === true) {
@@ -52,24 +53,13 @@ export class RecipeDetailComponent implements OnInit {
         this.recipe.uri,
         this.recipe.image,
         this.recipe.label,
-        this.recipe.ingredientLines.join(' ') // denna gör att vår array (som ingredientLines är) blir en string med mellanslag mellan orden. Db kan inte ta emot en array.
+        this.recipe.ingredientLines.join(' ')
       )
         .subscribe((data: any) => {
-          console.log(data)
           this.favouriteListService.getAllFavouriteLists();
           this.responseText.push(data.message);
         })
     }
-
-
   }
-
-  // addToFavourites(recipe) {
-  //   this.recipesService.addToFavourites(recipe);
-  // }
-
-  // addItemToFavouriteList(listId: number, detailId: string, image: string, label: string, ingredients: string) {
-  //   this.favouriteListItemsService.addItemToFavouriteList(listId, detailId, image, label, ingredients);
-  // }
 
 }

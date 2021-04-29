@@ -1,9 +1,10 @@
+<!-- Change name of favourite list -->
 <div class="updateData" *ngIf="data">
     <form (ngSubmit)="onSubmit(updateForm)" #updateForm="ngForm">
         <input class="form-control m-3" style="width: 60vw;" name="title" type="text" ngModel
             [placeholder]="data.favouriteList.title">
         <div>
-            <button class="btn m-3" type="submit">Submit</button>
+            <button class="btn m-3" type="submit">Update list</button>
         </div>
     </form>
 </div>

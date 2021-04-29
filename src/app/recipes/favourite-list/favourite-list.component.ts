@@ -11,21 +11,17 @@ import { FavouriteListService } from './favourite-list.service';
 
 export class FavouriteListComponent implements OnInit {
 
-  // items = this.recipesService.getFavourites();
-
   results;
 
   constructor(private favouriteListService: FavouriteListService) { }
+
 
   ngOnInit(): void {
     this.results = this.favouriteListService.favouriteLists
   }
 
-
   onSubmit(form) {
     this.favouriteListService.addFavouriteList(form.value.title);
-    // this.results.subscribe(data => console.log(data));
-    // console.log(this.results)
   }
 
   deleteFavouriteList(id: number) {

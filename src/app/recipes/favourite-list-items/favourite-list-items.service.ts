@@ -20,17 +20,10 @@ export class FavouriteListItemsService {
       recipe_label: label,
       recipe_ingredientLines: ingredients
     })
-
   }
 
   deleteFavouriteListItem(id: number) {
-
     return this.http.delete('http://127.0.0.1:80/api/auth/favourite-list-items/' + id)
-
-
-    // this.router.navigate(['/favourite-list-items', id])
-
   }
-
 
 }

@@ -1,7 +1,8 @@
-<h4 class="text-left m-2 text-center">Search recipes</h4>
-
 <div class="main">
+    <h5 class="text-left m-10 mb-3">Search recipes</h5>
     <div class="form-group has-search">
+
+        <!-- Search recipes -->
         <form (ngSubmit)="onSubmit(recipeForm)" #recipeForm="ngForm">
             <span class="fa fa-search form-control-feedback"></span>
             <input class="form-control" name="querystring" type="text" [(ngModel)]="querystring"
@@ -12,28 +13,31 @@
             <div class="container-fluid">
                 <div class="text-left">
                     <p>Mealtype</p>
-                    <input class="m-2" type="radio" value="breakfast" id="breakfast" name="mealType" ngModel> Breakfast
-                    <input class="m-2" type="radio" value="lunch" id="lunch" name="mealType" ngModel> Lunch
-                    <input class="m-2" type="radio" value="dinner" id="dinner" name="mealType" ngModel> Dinner
+                    <input class="m-2" type="radio" value="breakfast" id="breakfast" name="mealType" ngModel>
+                    Breakfast<br />
+                    <input class="m-2" type="radio" value="lunch" id="lunch" name="mealType" ngModel> Lunch<br />
+                    <input class="m-2" type="radio" value="dinner" id="dinner" name="mealType" ngModel> Dinner<br />
 
                 </div>
                 <br>
                 <div class="text-left">
                     <p>Dietary preferences</p>
                     <input class="m-2" type="radio" value="high-fiber" id="high-fiber" name="dietLabel" ngModel>
-                    High-Fiber
+                    High-Fiber<br />
                     <input class="m-2" type="radio" value="high-protein" id="high-protein" name="dietLabel" ngModel>
-                    High-Protein
-                    <input class="m-2" type="radio" value="low-carb" id="low-carb" name="dietLabel" ngModel> Low-Carb
+                    High-Protein<br />
+                    <input class="m-2" type="radio" value="low-carb" id="low-carb" name="dietLabel" ngModel>
+                    Low-Carb<br />
                 </div>
                 <br>
                 <div class="text-left">
                     <p>Health preferences</p>
-                    <input class="m-2" type="radio" value="egg-free" id="egg-free" name="healthLabel" ngModel> Egg-free
+                    <input class="m-2" type="radio" value="egg-free" id="egg-free" name="healthLabel" ngModel>
+                    Egg-free<br />
                     <input class="m-2" type="radio" value="fish-free" id="fish-free" name="healthLabel" ngModel>
-                    Fish-free
+                    Fish-free<br />
                     <input class="m-2" type="radio" value="gluten-free" id="gluten-free" name="healthLabel" ngModel>
-                    Gluten-free
+                    Gluten-free<br />
                 </div>
                 <br>
                 <div class="text-center mt-4">
@@ -45,6 +49,7 @@
     </div>
 </div>
 
+<!-- Displays result of search -->
 <div class="card-deck">
     <div class="row p-3 justify-content-center text-center">
         <div class="col-sm-6 col-md-4 col-lg-3 m-3" *ngFor="let result of ( results | async )?.hits"

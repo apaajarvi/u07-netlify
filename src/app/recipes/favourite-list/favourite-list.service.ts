@@ -19,13 +19,18 @@ export class FavouriteListService {
   constructor(private http: HttpClient, private router: Router) {
     this.favouriteListSubject = new BehaviorSubject<any[]>([]);
     this.favouriteLists = this.favouriteListSubject.asObservable();
-
-
   }
-  //Ev onödigt...
+
+
   public get favouriteListsValue(): any[] {
     return this.favouriteListSubject.value
   }
+
+
+  public set favouriteListSubjectValue(value: any) {
+    this.favouriteListSubject.next(value);
+  }
+
 
   addFavouriteList(title: string) {
     return this.http.post('http://127.0.0.1:80/api/auth/favourite-lists', { title: title })
@@ -55,7 +60,7 @@ export class FavouriteListService {
     })
   }
 
-  getFavoruiteListById(id: string) {
+  getFavouriteListById(id: string) {
     return this.http.get('http://127.0.0.1:80/api/auth/favourite-lists/' + id)
   }
 }

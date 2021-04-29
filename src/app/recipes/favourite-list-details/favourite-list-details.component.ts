@@ -16,18 +16,14 @@ export class FavouriteListDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router) { }
 
-
   ngOnInit(): void {
     this.route.paramMap.subscribe(paramMap => {
       const id = paramMap.get('id')
-      this.FavouriteListService.getFavoruiteListById(id).subscribe((data: any) => {
+      this.FavouriteListService.getFavouriteListById(id).subscribe((data: any) => {
         this.data = data
-        console.log(data) // Varför skickas inte datan med till html:en??
       })
     })
   }
-
-
 
   onSubmit(form) {
     this.FavouriteListService.updateFavouriteList(this.data.favouriteList.id, form.value.title);

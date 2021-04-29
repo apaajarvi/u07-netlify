@@ -24,26 +24,16 @@ export class FavouriteListItemsComponent implements OnInit {
     this.route.paramMap.subscribe(paramMap => {
       const id = paramMap.get('id')
       this.listId = id;
-      this.favouriteListService.getFavoruiteListById(id).subscribe((data: any) => {
+      this.favouriteListService.getFavouriteListById(id).subscribe((data: any) => {
         this.favouriteListItems = data.favouriteListItems
-        console.log(data)
       })
     })
-
   }
 
   deleteFavouriteListItem(id: number) {
     this.favouriteListItemsService.deleteFavouriteListItem(id).subscribe(data => {
-      console.log('hej')
       window.location.reload();
-
     });
-
   }
-
-  // addItemToFavouriteList(listId, detailId, image, label, ingredients) {
-  //   this.favouriteListItemsService.addItemToFavouriteList(listId, detailId, image, label, ingredients);
-  // }
-
 
 }

@@ -30,20 +30,10 @@ input {
     background-color: pink;
 }
 
-/* .btn-logout {
-    border-color: darkorange;
-    background-color: whitesmoke;
+.btn-del-rec {
+    border: none;
+    background-color: white;
 }
-
-.btn-logout:hover {
-    border: darkorange;
-
-} */
-
-/* .btn:hover {
-    background: #e9c2d2;
-    border-color: #9494e9;
-} */
 
 a:link, a:visited, a:hover {
     color: black;

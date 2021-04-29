@@ -1,5 +1,6 @@
 <h5 class="display-6 m-2">Recipe app <i class="far fa-lemon"></i></h5>
-<!-- <app-header></app-header> -->
+
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" routerLink="/home">Home</a>
@@ -17,7 +18,6 @@
                         *ngIf="isSignedIn">Favourite
                         recipes</a>
                 </li>
-                <!-- Nedan är för in- och utlogg -->
                 <li class="nav-item">
                     <a class="nav-link active" routerLink="/profile" *ngIf="isSignedIn">User Profile</a>
                 </li>
