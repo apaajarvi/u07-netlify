@@ -9,6 +9,12 @@
     "e2e": "ng e2e",
     "start": "npm run config -- --environment=dev && ng serve",
     "build": "npm run config -- --environment=prod && ng build",
+    "start:prod": "APP_ENV=production ng serve",
+    "start:dev": "APP_ENV=development ng serve",
+    "start:staging": "APP_ENV=staging ng serve",
+    "build:prod": "APP_ENV=production ng build --prod",
+    "build:dev": "APP_ENV=development ng build --prod",
+    "build:staging": "APP_ENV=staging ng build --prod"
   },
   "private": true,
   "dependencies": {
