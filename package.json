@@ -7,12 +7,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start:prod": "APP_ENV=production ng serve",
-    "start:dev": "APP_ENV=development ng serve",
-    "start:staging": "APP_ENV=staging ng serve",
-    "build:prod": "APP_ENV=production ng build --prod",
-    "build:dev": "APP_ENV=development ng build --prod",
-    "build:staging": "APP_ENV=staging ng build --prod"
+    "start": "npm run config -- --environment=dev && ng serve",
+    "build": "APP_ENV=ng build --prod",
   },
   "private": true,
   "dependencies": {
