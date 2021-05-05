@@ -1,0 +1,6 @@
+export const environment = {
+    production: false,
+    apiKey: process.env.apiKey,
+    apiID: process.env.apiID,
+    apiURL: "https://api.edamam.com/search?",
+};
