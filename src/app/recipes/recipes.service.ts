@@ -28,25 +28,6 @@ export class RecipesService {
     return this.http.get<any[]>(url + encodeURIComponent(id))
   }
 
-  // Favourite-list functions
-  // addToFavourites(recipe) {
-  //   console.log(recipe)
-  //   this.items.push(recipe);
-  // }
-
-  // getFavourites() {
-  //   return this.items;
-  // }
-
-  // deleteOne(item) {
-  //   this.items.splice(this.items.indexOf(x => x.uri === item.uri), 1)
-  // }
-
-  // clearFavourites() {
-  //   this.items = [];
-  // }
-
-  // Recipe-form function search recipe
   findRecipe(q: string, mealType = null, dietLabel = null, healthLabel = null): Observable<any[]> {
 
     const mealTypeString = mealType !== "" ? "&mealType=" + mealType : "";
