@@ -29,22 +29,22 @@ export class RecipesService {
   }
 
   // Favourite-list functions
-  addToFavourites(recipe) {
-    console.log(recipe)
-    this.items.push(recipe);
-  }
+  // addToFavourites(recipe) {
+  //   console.log(recipe)
+  //   this.items.push(recipe);
+  // }
 
-  getFavourites() {
-    return this.items;
-  }
+  // getFavourites() {
+  //   return this.items;
+  // }
 
-  deleteOne(item) {
-    this.items.splice(this.items.indexOf(x => x.uri === item.uri), 1)
-  }
+  // deleteOne(item) {
+  //   this.items.splice(this.items.indexOf(x => x.uri === item.uri), 1)
+  // }
 
-  clearFavourites() {
-    this.items = [];
-  }
+  // clearFavourites() {
+  //   this.items = [];
+  // }
 
   // Recipe-form function search recipe
   findRecipe(q: string, mealType = null, dietLabel = null, healthLabel = null): Observable<any[]> {
